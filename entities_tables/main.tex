@@ -8,51 +8,73 @@
 \begin{document}
 \begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|  }
 \hline
-\multicolumn{6}{|c|}{Products Продукты(устройства)} \\
+\multicolumn{6}{|c|}{products продукты(устройства)} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-id                  &   % Название
-                    &   % Описание
-integer             &   % Тип данных
-Unique, NOT NULL    &   % Ограничения
- +                  &   % PK
- +                  \\  % FK
+id                     &   % Название
+                       &   % Описание
+integer                &   % Тип данных
+Unique, NOT NULL       &   % Ограничения
+ +                     &   % PK
+ +                     \\  % FK
 \hline
-manufacturer        &   % Название
-Производитель       &   % Описание
-varchar(20)         &   % Тип данных
-                    &   % Ограничения
-                    &   % PK
- +                  \\  % FK
+manufacturer           &   % Название
+Производитель          &   % Описание
+varchar(20)            &   % Тип данных
+                       &   % Ограничения
+                       &   % PK
+ +                     \\  % FK
 \hline
-start\_of\_production &   % Название
-Начало производства &   % Описание
-date                &   % Тип данных
-NOT NULL            &   % Ограничения
-                    &   % PK
-                    \\  % FK
+start\_of\_production  &   % Название
+Начало производства    &   % Описание
+date                   &   % Тип данных
+NOT NULL               &   % Ограничения
+                       &   % PK
+                       \\  % FK
 \hline
-end\_of\_production &   % Название
-Конец производства  &   % Описание
-date                &   % Тип данных
-NOT NULL            &   % Ограничения
-                    &   % PK
-                    \\  % FK
+end\_of\_production    &   % Название
+Конец производства     &   % Описание
+date                   &   % Тип данных
+NOT NULL               &   % Ограничения
+                       &   % PK
+                       \\  % FK
 \hline
-model\_name         &   % Название
-Название модели     &   % Описание
-varchar(20)         &   % Тип данных
-NOT NULL            &   % Ограничения
-                    &   % PK
-                    \\  % FK
+model\_name            &   % Название
+Название модели        &   % Описание
+varchar(20)            &   % Тип данных
+NOT NULL               &   % Ограничения
+                       &   % PK
+                       \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}| }
+\hline
+\multicolumn{6}{|c|}{manufacturers производители} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+name                   &   % Название
+Название производителя &   % Описание
+varchar(20)            &   % Тип данных
+Unique, NOT NULL       &   % Ограничения
+ +                     &   % PK
+                       \\  % FK
+\hline
+foundation\_date       &   % Название
+Дата основания         &   % Описание
+date                   &   % Тип данных
+                       &   % Ограничения
+                       &   % PK
+                       \\  % FK
 \hline
 \end{tabular}
 
 
 \newpage
 
-\begin{tabular}{ |p{3cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}  }
+\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}| }
 \hline
 \multicolumn{6}{|c|}{Template} \\
 \hline
