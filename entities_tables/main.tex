@@ -1,14 +1,14 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage[left=0cm,right=0cm,top=0cm,bottom=0cm,bindingoffset=0cm]{geometry}
 \usepackage[russian]{babel}
-%\usepackage{amssymb,amsmath}
+\usepackage{amssymb,amsmath}
 
 \begin{document}
 \begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|  }
 \hline
-\multicolumn{6}{|c|}{products продукты(устройства)} \\
+\multicolumn{6}{|c|}{Products Продукты(устройства)} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
@@ -36,7 +36,7 @@ NOT NULL               &   % Ограничения
 end\_of\_production    &   % Название
 Конец производства     &   % Описание
 date                   &   % Тип данных
-NOT NULL               &   % Ограничения
+                       &   % Ограничения
                        &   % PK
                        \\  % FK
 \hline
@@ -51,7 +51,7 @@ NOT NULL               &   % Ограничения
 
 \begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}| }
 \hline
-\multicolumn{6}{|c|}{manufacturers производители} \\
+\multicolumn{6}{|c|}{Manufacturers Производители} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
@@ -71,6 +71,79 @@ date                   &   % Тип данных
 \hline
 \end{tabular}
 
+
+\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}| }
+\hline
+\multicolumn{6}{|c|}{Awards Награды} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+model\_id              &   % Название
+id продукта            &   % Описание
+integer                &   % Тип данных
+NOT NULL               &   % Ограничения
+ +                     &   % PK
+                       \\  % FK
+\hline
+title\_id              &   % Название
+Номинация              &   % Описание
+integer                &   % Тип данных
+                       &   % Ограничения
+ +                     &   % PK
+ +                     \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}| }
+\hline
+\multicolumn{6}{|c|}{AwardsTitles Номинации} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+title\_id              &   % Название
+id номинации           &   % Описание
+integer                &   % Тип данных
+NOT NULL               &   % Ограничения
+ +                     &   % PK
+                       \\  % FK
+\hline
+text                   &   % Название
+Полный текст номинации &   % Описание
+integer                &   % Тип данных
+                       &   % Ограничения
+                       &   % PK
+                       \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{3.5cm}|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}| }
+\hline
+\multicolumn{6}{|c|}{WarrantyCases Гарантийные случаи} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+id                     &   % Название
+Суррогатный ключ       &   % Описание
+integer                &   % Тип данных
+Unique, NOT NULL       &   % Ограничения
+ +                     &   % PK
+                       \\  % FK
+\hline
+model\_id              &   % Название
+id модели              &   % Описание
+integer                &   % Тип данных
+NOT NULL               &   % Ограничения
+                       &   % PK
+ +                     \\  % FK
+\hline
+date                   &   % Название
+Дата обращения         &   % Описание
+integer                &   % Тип данных
+NOT NULL               &   % Ограничения
+                       &   % PK
+                       \\  % FK
+\hline
+\end{tabular}
 
 \newpage
 
