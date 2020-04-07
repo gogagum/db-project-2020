@@ -6,7 +6,7 @@
 \usepackage{amssymb,amsmath}
 
 \begin{document}
-\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}|  }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{PRODUCTS Продукты(устройства)} \\
 \hline
@@ -26,20 +26,6 @@ NOT NULL                            &   % Ограничения
                                     &   % PK
  +                                  \\  % FK
 \hline
-production\_start\_dt               &   % Название
-Начало производства                 &   % Описание
-date                                &   % Тип данных
-NOT NULL                            &   % Ограничения
-                                    &   % PK
-                                    \\  % FK
-\hline
-production\_end\_dt                 &   % Название
-Конец производства                  &   % Описание
-date                                &   % Тип данных
-> production\_end\_dt               &   % Ограничения
-                                    &   % PK
-                                    \\  % FK
-\hline
 model\_nm                           &   % Название
 Название модели                     &   % Описание
 varchar(20)                         &   % Тип данных
@@ -49,7 +35,7 @@ NOT NULL                            &   % Ограничения
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{Manufacturers Производители} \\
 \hline
@@ -72,36 +58,29 @@ date                                &   % Тип данных
 \end{tabular}
 
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{AWARDS Награды} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-award\_id                           &   % Название
-id награды                          &   % Описание
-integer                             &   % Тип данных
-                                    &   % Ограничения
- +                                  &   % PK
-                                    \\  % FK
-\hline
 model\_id                           &   % Название
 id продукта                         &   % Описание
 integer                             &   % Тип данных
 NOT NULL                            &   % Ограничения
-                                    &   % PK
+Как часть составного                &   % PK
  +                                  \\  % FK
 \hline
 title\_id                           &   % Название
 id номинации                        &   % Описание
 integer                             &   % Тип данных
 NOT NULL                            &   % Ограничения
-                                    &   % PK
+Как часть составного                &   % PK
  +                                  \\  % FK
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{AWARDS\_TITLES Номинации} \\
 \hline
@@ -130,17 +109,16 @@ date                                &   % Тип данных
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{WARRANTY\_CASES Гарантийные случаи} \\
+\multicolumn{6}{|c|}{PRODUCTION\_PERIODS Периоды производства} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-warranty\_case\_id                  &   % Название
-Суррогатный ключ                    &   % Описание
+period\_id                          &   % Название
+id периода производства             &   % Описание
 integer                             &   % Тип данных
-Unique, \linebreak
-NOT NULL                            &   % Ограничения
+                                    &   % Ограничения
  +                                  &   % PK
                                     \\  % FK
 \hline
@@ -151,16 +129,30 @@ NOT NULL                            &   % Ограничения
                                     &   % PK
  +                                  \\  % FK
 \hline
-warranty\_case\_dt                  &   % Название
-Дата обращения                      &   % Описание
-integer                             &   % Тип данных
+production\_start\_dt               &   % Название
+Начало производства                 &   % Описание
+date                                &   % Тип данных
 NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+production\_end\_dt                 &   % Название
+Конец производства                  &   % Описание
+date                                &   % Тип данных
+> production\_end\_dt               &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+factory\_nm                         &   % Название
+Название производящего предприятия  &   % Описание
+varchar(10)                         &   % Тип данных
+                                    &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{MARTIX\_TYPE Типы матриц} \\
 \hline
@@ -191,7 +183,7 @@ NOT NULL, \linebreak
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{CAMERAS Камеры} \\
 \hline
@@ -227,7 +219,7 @@ NOT NULL                            &   % Ограничения
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{LENSES Объективы} \\
 \hline
@@ -249,9 +241,9 @@ NOT NULL                            &   % Ограничения
 \hline
 focal\_length                       &   % Название
 Фокусное расстояние                 &   % Описание
-decimal(5, 2), \linebreak
-> 0                                 &   % Тип данных
-NOT NULL                            &   % Ограничения
+decimal(5, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
@@ -313,7 +305,7 @@ NOT NULL                            &   % Ограничения
 
 \newpage
 
-\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{MOUNT\_SUPPORT Поддержка объективов камерами} \\
 \hline
