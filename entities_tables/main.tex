@@ -96,7 +96,7 @@ date                                &   % Тип данных
 title\_id                           &   % Название
 id номинации                        &   % Описание
 integer                             &   % Тип данных
-NOT NULL                            &   % Ограничения
+                                    &   % Ограничения
  +                                  &   % PK
                                     \\  % FK
 \hline
@@ -192,42 +192,6 @@ NOT NULL, \linebreak
 
 \begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{CAMERAS Камеры} \\
-\hline
-Название & Описание & Тип данных & Ограничения & PK & FK\\
-\hline
-camera\_id                          &   % Название
-Суррогатный ключ                    &   % Описание
-integer                             &   % Тип данных
-                                    &   % Ограничения
- +                                  &   % PK
- +                                  \\  % FK
-\hline
-matrix\_type                        &   % Название
-Тип матрицы                         &   % Описание
-varchar(10)                         &   % Тип данных
-NOT NULL                            &   % Ограничения
-                                    &   % PK
- +                                  \\  % FK
-\hline
-has\_flashlight                     &   % Название
-Наличие вспышки                     &   % Описание
-boolean                             &   % Тип данных
-NOT NULL                            &   % Ограничения
-                                    &   % PK
-                                    \\  % FK
-\hline
-mount\_type                         &   % Название
-Тип крепления                       &   % Описание
-varchar(10)                         &   % Тип данных
-NOT NULL                            &   % Ограничения
-                                    &   % PK
- +                                  \\  % FK
-\hline
-\end{tabular}
-
-\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
-\hline
 \multicolumn{6}{|c|}{LENSES Объективы} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
@@ -311,6 +275,42 @@ NOT NULL                            &   % Ограничения
 \end{tabular}
 
 \newpage
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{CAMERAS Камеры} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+camera\_id                          &   % Название
+Суррогатный ключ                    &   % Описание
+integer                             &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+ +                                  \\  % FK
+\hline
+matrix\_type                        &   % Название
+Тип матрицы                         &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+ +                                  \\  % FK
+\hline
+has\_flashlight                     &   % Название
+Наличие вспышки                     &   % Описание
+boolean                             &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+mount\_type                         &   % Название
+Тип крепления                       &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+ +                                  \\  % FK
+\hline
+\end{tabular}
 
 \begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
 \hline
