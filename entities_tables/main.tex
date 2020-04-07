@@ -6,41 +6,41 @@
 \usepackage{amssymb,amsmath}
 
 \begin{document}
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}|  }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}|  }
 \hline
-\multicolumn{6}{|c|}{Products Продукты(устройства)} \\
+\multicolumn{6}{|c|}{PRODUCTS Продукты(устройства)} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-id                                  &   % Название
-                                    &   % Описание
+product\_id                         &   % Название
+ID устройства                       &   % Описание
 integer                             &   % Тип данных
-Unique, NOT NULL                    &   % Ограничения
+                                    &   % Ограничения
  +                                  &   % PK
  +                                  \\  % FK
 \hline
 manufacturer                        &   % Название
 Производитель                       &   % Описание
 varchar(20)                         &   % Тип данных
-                                    &   % Ограничения
+NOT NULL                            &   % Ограничения
                                     &   % PK
  +                                  \\  % FK
 \hline
-start\_of\_production               &   % Название
+production\_start\_dt               &   % Название
 Начало производства                 &   % Описание
 date                                &   % Тип данных
 NOT NULL                            &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
-end\_of\_production                 &   % Название
+production\_end\_dt                 &   % Название
 Конец производства                  &   % Описание
 date                                &   % Тип данных
-                                    &   % Ограничения
+> production\_end\_dt               &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
-model\_name                         &   % Название
+model\_nm                           &   % Название
 Название модели                     &   % Описание
 varchar(20)                         &   % Тип данных
 NOT NULL                            &   % Ограничения
@@ -49,20 +49,20 @@ NOT NULL                            &   % Ограничения
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
 \multicolumn{6}{|c|}{Manufacturers Производители} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-name                                &   % Название
+manufacturer\_nm                    &   % Название
 Название производителя              &   % Описание
 varchar(20)                         &   % Тип данных
-Unique, NOT NULL                    &   % Ограничения
+                                    &   % Ограничения
  +                                  &   % PK
                                     \\  % FK
 \hline
-foundation\_date                    &   % Название
+foundation\_dt                      &   % Название
 Дата основания                      &   % Описание
 date                                &   % Тип данных
                                     &   % Ограничения
@@ -72,31 +72,38 @@ date                                &   % Тип данных
 \end{tabular}
 
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{Awards Награды} \\
+\multicolumn{6}{|c|}{AWARDS Награды} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+award\_id                           &   % Название
+id награды                          &   % Описание
+integer                             &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+                                    \\  % FK
 \hline
 model\_id                           &   % Название
 id продукта                         &   % Описание
 integer                             &   % Тип данных
 NOT NULL                            &   % Ограничения
- +                                  &   % PK
-                                    \\  % FK
+                                    &   % PK
+ +                                  \\  % FK
 \hline
 title\_id                           &   % Название
-Номинация                           &   % Описание
+id номинации                        &   % Описание
 integer                             &   % Тип данных
-                                    &   % Ограничения
- +                                  &   % PK
+NOT NULL                            &   % Ограничения
+                                    &   % PK
  +                                  \\  % FK
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{AwardsTitles Номинации} \\
+\multicolumn{6}{|c|}{AWARDS\_TITLES Номинации} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
@@ -107,25 +114,33 @@ NOT NULL                            &   % Ограничения
  +                                  &   % PK
                                     \\  % FK
 \hline
-text                                &   % Название
+award\_title\_txt                   &   % Название
 Полный текст номинации              &   % Описание
 integer                             &   % Тип данных
                                     &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
+first\_given\_dt                    &   % Название
+Дата первого награждения            &   % Описание
+date                                &   % Тип данных
+                                    &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
 \end{tabular}
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{WarrantyCases Гарантийные случаи} \\
+\multicolumn{6}{|c|}{WARRANTY\_CASES Гарантийные случаи} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-id                                  &   % Название
+warranty\_case\_id                  &   % Название
 Суррогатный ключ                    &   % Описание
 integer                             &   % Тип данных
-Unique, NOT NULL                    &   % Ограничения
+Unique, \linebreak
+NOT NULL                            &   % Ограничения
  +                                  &   % PK
                                     \\  % FK
 \hline
@@ -136,7 +151,7 @@ NOT NULL                            &   % Ограничения
                                     &   % PK
  +                                  \\  % FK
 \hline
-date                                &   % Название
+warranty\_case\_dt                  &   % Название
 Дата обращения                      &   % Описание
 integer                             &   % Тип данных
 NOT NULL                            &   % Ограничения
@@ -145,45 +160,47 @@ NOT NULL                            &   % Ограничения
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{MatrixType Типы матриц} \\
+\multicolumn{6}{|c|}{MARTIX\_TYPE Типы матриц} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-name                                &   % Название
+matrix\_type\_id                    &   % Название
 Название стандарта                  &   % Описание
 varchar(10)                         &   % Тип данных
-Unique, NOT NULL                    &   % Ограничения
+                                    &   % Ограничения
  +                                  &   % PK
  +                                  \\  % FK
 \hline
 height                              &   % Название
 Высота                              &   % Описание
 decimal(4, 2)                       &   % Тип данных
-NOT NULL                            &   % Ограничения
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
 width                               &   % Название
 Ширина                              &   % Описание
 decimal(4, 2)                       &   % Тип данных
-NOT NULL                            &   % Ограничения
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{Cameras Камеры} \\
+\multicolumn{6}{|c|}{CAMERAS Камеры} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-id                                  &   % Название
+camera\_id                          &   % Название
 Суррогатный ключ                    &   % Описание
 integer                             &   % Тип данных
-Unique, NOT NULL                    &   % Ограничения
+                                    &   % Ограничения
  +                                  &   % PK
  +                                  \\  % FK
 \hline
@@ -210,16 +227,16 @@ NOT NULL                            &   % Ограничения
 \hline
 \end{tabular}
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{Lenses Объективы} \\
+\multicolumn{6}{|c|}{LENSES Объективы} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
-id                                  &   % Название
-Суррогатный ключ                    &   % Описание
+lens\_id                            &   % Название
+id модели объектива                 &   % Описание
 integer                             &   % Тип данных
-Unique, NOT NULL                    &   % Ограничения
+                                    &   % Ограничения
  +                                  &   % PK
  +                                  \\  % FK
 \hline
@@ -232,7 +249,8 @@ NOT NULL                            &   % Ограничения
 \hline
 focal\_length                       &   % Название
 Фокусное расстояние                 &   % Описание
-decimal(5, 2)                       &   % Тип данных
+decimal(5, 2), \linebreak
+> 0                                 &   % Тип данных
 NOT NULL                            &   % Ограничения
                                     &   % PK
                                     \\  % FK
@@ -240,35 +258,40 @@ NOT NULL                            &   % Ограничения
 min\_aperture                       &   % Название
 Минимальная диафрагма (f/*)         &   % Описание
 decimal(5, 2)                       &   % Тип данных
-NOT NULL                            &   % Ограничения
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
 max\_aperture                       &   % Название
 Максимальная диафрагма (f/*)        &   % Описание
 decimal(5, 2)                       &   % Тип данных
-NOT NULL                            &   % Ограничения
+NOT NULL, \linebreak
+>= min\_aperture                    &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
-number\_of\_diafragm\_blades        &   % Название
+diafragm\_blades\_cnt               &   % Название
 Количество лепестков диафрагмы      &   % Описание
 integer                             &   % Тип данных
-NOT NULL                            &   % Ограничения
+NOT NULL, \linebreak
+>= 0                                &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
 min\_focusing\_distance             &   % Название
 Минимальное расстояние фокусировки  &   % Описание
 decimal(5, 2)                       &   % Тип данных
-NOT NULL                            &   % Ограничения
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
 filter\_size                        &   % Название
 Диаметр резьбы под светофильтр      &   % Описание
 decimal(4, 1)                       &   % Тип данных
-NOT NULL                            &   % Ограничения
+NOT NULL, \linebreak
+>0                                  &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
@@ -290,9 +313,9 @@ NOT NULL                            &   % Ограничения
 
 \newpage
 
-\begin{tabular}{ |p{4.5cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
+\begin{tabular}{ |p{4cm}|p{4cm}|p{3cm}|p{3cm}|p{2cm}|p{1cm}| }
 \hline
-\multicolumn{6}{|c|}{MountSupprt Поддержка объективов камерами} \\
+\multicolumn{6}{|c|}{MOUNT\_SUPPORT Поддержка объективов камерами} \\
 \hline
 Название & Описание & Тип данных & Ограничения & PK & FK\\
 \hline
