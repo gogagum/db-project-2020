@@ -8,7 +8,9 @@ create schema photographic_equipment;
 create table photographic_equipment.MANUFACTURERS
 (
   manufacturer_nm varchar(20) primary key,
-  foundation_dt   date
+  foundation_dt   date,
+  founders_nms    varchar(30),
+  country         varchar(10) not null
 );
 
 create table photographic_equipment.PRODUCTS
@@ -67,7 +69,8 @@ create table photographic_equipment.LENSES
 (
   lens_id               integer       primary key references photographic_equipment.PRODUCTS,
   lens_mount_type       varchar(10)   not null,
-  focal_length          decimal(5, 2) not null    check (focal_length > 0),
+  min_focal_length      decimal(5, 2) not null    check (min_focal_length > 0),
+  max_focal_length      decimal(5, 2) not null    check (max_aperture > min_focal_length),
   min_aperture          decimal(5, 2) not null    check (min_aperture > 0),
   max_aperture          decimal(5, 2) not null    check (max_aperture >= min_aperture),
   diaphragm_blades_cnt  integer       not null    check (diaphragm_blades_cnt >= 0),

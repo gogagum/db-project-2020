@@ -55,6 +55,20 @@ date                                &   % Тип данных
                                     &   % PK
                                     \\  % FK
 \hline
+founders\_nms                       &   % Название
+Имена основателей                   &   % Описание
+varchar(30)                         &   % Тип данных
+                                    &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+country                             &   % Название
+Страна компании                     &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
 \end{tabular}
 
 
@@ -210,11 +224,19 @@ NOT NULL                            &   % Ограничения
                                     &   % PK
  +                                  \\  % FK
 \hline
-focal\_length                       &   % Название
+min\_focal\_length                  &   % Название
 Фокусное расстояние                 &   % Описание
 decimal(5, 2)                       &   % Тип данных
 NOT NULL, \linebreak
 > 0                                 &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+max\_focal\_length                  &   % Название
+Фокусное расстояние                 &   % Описание
+decimal(5, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+> min\_focal\_length                &   % Ограничения
                                     &   % PK
                                     \\  % FK
 \hline
