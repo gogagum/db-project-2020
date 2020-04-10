@@ -1,0 +1,352 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[left=0cm,right=0cm,top=0cm,bottom=0cm,bindingoffset=0cm]{geometry}
+\usepackage[russian]{babel}
+\usepackage{amssymb,amsmath}
+
+\begin{document}
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{PRODUCTS Продукты(устройства)} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+product\_id                         &   % Название
+ID устройства                       &   % Описание
+integer                             &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+ +                                  \\  % FK
+\hline
+manufacturer                        &   % Название
+Производитель                       &   % Описание
+varchar(20)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+ +                                  \\  % FK
+\hline
+model\_nm                           &   % Название
+Название модели                     &   % Описание
+varchar(50)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{MANUFACTURERS Производители} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+manufacturer\_nm                    &   % Название
+Название производителя              &   % Описание
+varchar(20)                         &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+                                    \\  % FK
+\hline
+foundation\_dt                      &   % Название
+Дата основания                      &   % Описание
+date                                &   % Тип данных
+                                    &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+founders\_nms                       &   % Название
+Имена основателей                   &   % Описание
+text                                &   % Тип данных
+                                    &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+country                             &   % Название
+Страна компании                     &   % Описание
+varchar(20)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+\end{tabular}
+
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{AWARDS Награды} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+model\_id                           &   % Название
+id продукта                         &   % Описание
+integer                             &   % Тип данных
+NOT NULL                            &   % Ограничения
+Как часть составного                &   % PK
+ +                                  \\  % FK
+\hline
+title\_id                           &   % Название
+id номинации                        &   % Описание
+integer                             &   % Тип данных
+NOT NULL                            &   % Ограничения
+Как часть составного                &   % PK
+ +                                  \\  % FK
+\hline
+award\_dt                           &   % Название
+Дата вручения                       &   % Описание
+date                                &   % Тип данных
+                                    &   % Ограничения
+                                    &   % PK
+ +                                  \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{AWARDS\_TITLES Номинации} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+title\_id                           &   % Название
+id номинации                        &   % Описание
+integer                             &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+                                    \\  % FK
+\hline
+award\_title\_txt                   &   % Название
+Полный текст номинации              &   % Описание
+text                                &   % Тип данных
+                                    &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+first\_given\_dt                    &   % Название
+Дата первого награждения            &   % Описание
+date                                &   % Тип данных
+                                    &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{PRODUCTION\_PERIODS Периоды производства} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+model\_id                           &   % Название
+id модели                           &   % Описание
+integer                             &   % Тип данных
+NOT NULL                            &   % Ограничения
+Как часть составного                &   % PK
+ +                                  \\  % FK
+\hline
+production\_start\_dt               &   % Название
+Начало производства                 &   % Описание
+date                                &   % Тип данных
+NOT NULL                            &   % Ограничения
+Как часть составного                &   % PK
+                                    \\  % FK
+\hline
+production\_end\_dt                 &   % Название
+Конец производства                  &   % Описание
+date                                &   % Тип данных
+> production\_end\_dt               &   % Ограничения
+Как часть составного                &   % PK
+                                    \\  % FK
+\hline
+factory\_nm                         &   % Название
+Название производящего предприятия  &   % Описание
+varchar(10)                         &   % Тип данных
+ +                                  &   % Ограничения
+Как часть составного                &   % PK
+                                    \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{MARTIX\_TYPE Типы матриц} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+matrix\_type\_nm                    &   % Название
+Название стандарта                  &   % Описание
+varchar(20)                         &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+ +                                  \\  % FK
+\hline
+height                              &   % Название
+Высота                              &   % Описание
+decimal(4, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+width                               &   % Название
+Ширина                              &   % Описание
+decimal(4, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{LENSES Объективы} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+lens\_id                            &   % Название
+id модели объектива                 &   % Описание
+integer                             &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+ +                                  \\  % FK
+\hline
+mount\_type                         &   % Название
+Тип крепления                       &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+ +                                  \\  % FK
+\hline
+min\_focal\_length                  &   % Название
+Фокусное расстояние                 &   % Описание
+decimal(5, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+max\_focal\_length                  &   % Название
+Фокусное расстояние                 &   % Описание
+decimal(5, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+>= min\_focal\_length               &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+min\_aperture                       &   % Название
+Минимальная диафрагма (f/*)         &   % Описание
+decimal(5, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+max\_aperture                       &   % Название
+Максимальная диафрагма (f/*)        &   % Описание
+decimal(5, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+<= min\_aperture                    &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+diafragm\_blades\_cnt               &   % Название
+Количество лепестков диафрагмы      &   % Описание
+integer                             &   % Тип данных
+NOT NULL, \linebreak
+>= 0                                &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+min\_focusing\_distance             &   % Название
+Минимальное расстояние фокусировки  &   % Описание
+decimal(5, 2)                       &   % Тип данных
+NOT NULL, \linebreak
+> 0                                 &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+filter\_size                        &   % Название
+Диаметр резьбы под светофильтр      &   % Описание
+decimal(4, 1)                       &   % Тип данных
+NOT NULL, \linebreak
+>0                                  &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+has\_autofocus                      &   % Название
+Наличие поддержки автофокуса        &   % Описание
+boolean                             &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+has\_stabilization                  &   % Название
+Наличие поддержки стабилизации      &   % Описание
+boolean                             &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+\end{tabular}
+
+\newpage
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{CAMERAS Камеры} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+camera\_id                          &   % Название
+Суррогатный ключ                    &   % Описание
+integer                             &   % Тип данных
+                                    &   % Ограничения
+ +                                  &   % PK
+ +                                  \\  % FK
+\hline
+matrix\_type                        &   % Название
+Тип матрицы                         &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+ +                                  \\  % FK
+\hline
+has\_flashlight                     &   % Название
+Наличие вспышки                     &   % Описание
+boolean                             &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+                                    \\  % FK
+\hline
+mount\_type                         &   % Название
+Тип крепления                       &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+                                    &   % PK
+ +                                  \\  % FK
+\hline
+\end{tabular}
+
+\begin{tabular}{ |p{4cm}|p{4cm}|p{2.5cm}|p{3.5cm}|p{2cm}|p{1cm}| }
+\hline
+\multicolumn{6}{|c|}{MOUNT\_SUPPORT Поддержка объективов камерами} \\
+\hline
+Название & Описание & Тип данных & Ограничения & PK & FK\\
+\hline
+camera\_mount\_type                 &   % Название
+Стандарт крепления в камере         &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+Как часть составного                &   % PK
+ +                                  \\  % FK
+\hline
+lens\_mount\_type                   &   % Название
+Стандарт крепления в объективе      &   % Описание
+varchar(10)                         &   % Тип данных
+NOT NULL                            &   % Ограничения
+Как часть составного                &   % PK
+ +                                  \\  % FK
+\hline
+\end{tabular}
+
+\end{document}
