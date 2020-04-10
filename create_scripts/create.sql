@@ -9,7 +9,7 @@ create table photographic_equipment.MANUFACTURERS
 (
   manufacturer_nm varchar(20) primary key,
   foundation_dt   date,
-  founders_nms    varchar(30),
+  founders_nms    text,
   country         varchar(20) not null
 );
 
