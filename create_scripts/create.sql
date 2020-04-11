@@ -24,21 +24,22 @@ create table photographic_equipment.MOUNT_SUPPORT
 (
     camera_mount_type varchar(10) not null,
     lens_mount_type   varchar(10) not null,
-    PRIMARY KEY       (camera_mount_type, lens_mount_type)
+    primary key       (camera_mount_type, lens_mount_type)
 );
 
 create table photographic_equipment.AWARD_TITLES
 (
-  title_id        integer primary key ,
+  title_id        integer primary key,
   award_title_txt text    not null,
   first_given_dt  date
 );
 
 create table photographic_equipment.AWARDS
 (
-  model_id integer NOT NULL references photographic_equipment.PRODUCTS,
-  title_id integer NOT NULL references photographic_equipment.AWARD_TITLES,
-  award_dt date
+  model_id    integer NOT NULL references photographic_equipment.PRODUCTS,
+  title_id    integer NOT NULL references photographic_equipment.AWARD_TITLES,
+  award_dt    date,
+  primary key (model_id, title_id)
 );
 
 create table photographic_equipment.PRODUCTION_PERIODS
@@ -46,7 +47,8 @@ create table photographic_equipment.PRODUCTION_PERIODS
   model_id            integer NOT NULL    references photographic_equipment.PRODUCTS,
   production_start_dt date    NOT NULL,
   production_end_dt   date    check(production_end_dt > production_start_dt),
-  factory_nm          varchar(20)
+  factory_nm          varchar(20),
+  primary key         (model_id, production_start_dt, factory_nm)
 );
 
 create table photographic_equipment.MATRIX_TYPES
