@@ -63,7 +63,7 @@ group by manufacturer, matrix_type, camera_id;
 --#############################################################################
 
 --c.ii begin
---Самая новая камера каздого производителя
+--Самая новая камера каждого производителя
 --Не придумал order by без partition by
 with total_production_periods as(
     select distinct
@@ -140,3 +140,31 @@ where awards_for_10_years.model_id = products.product_id
 order by products.manufacturer, awards_for_10_years.year
 --group by year
 --c.iii end
+
+
+--c.iv begin
+--Производители с рангом по количиству наград его продуктов
+with awards_count as (
+  select
+    products.manufacturer as manufacturer,
+    count(*) as cnt
+  from
+    photographic_equipment.products as products,
+    photographic_equipment.awards as awards
+  where
+    products.product_id = awards.model_id
+  group by
+    products.manufacturer
+)
+select
+    dense_rank() over (order by a_c.cnt desc) as rank,
+    a_c.manufacturer as manufacturer,
+    a_c.cnt as count
+from
+   awards_count as a_c
+group by
+  a_c.manufacturer, a_c.cnt
+--c.iv end
+
+
+
