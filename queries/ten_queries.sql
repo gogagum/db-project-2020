@@ -118,7 +118,6 @@ where true
 insert into photographic_equipment.manufacturers (manufacturer_nm, foundation_dt, founders_nms, country)
 values
   ('ASUS', '01-01-1912', NULL, 'Republic of China');
--- Не придумал ничего лучше
 
 
 
